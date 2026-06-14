@@ -1,0 +1,480 @@
+# Home Assistant Lovelace view for the Mecer 32L81F
+# Add this under your dashboard's `views:` list (raw config editor).
+# Requires custom:button-card (HACS). Sends via the studio Tasmota IR blaster.
+title: MECER 32L81F
+path: mecer-32l81f
+icon: mdi:remote-tv
+badges: []
+cards:
+- type: vertical-stack
+  cards:
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: POWER
+      icon: mdi:power
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020250AF","Repeat":1}'
+      styles:
+        icon:
+        - color: red
+    - type: custom:button-card
+      name: MENU
+      icon: mdi:menu
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020202FD","Repeat":1}'
+    - type: custom:button-card
+      name: EXIT
+      icon: mdi:exit-to-app
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020204FB","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: SRC
+      icon: mdi:import
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202827D","Repeat":1}'
+    - type: custom:button-card
+      name: TV
+      icon: mdi:television
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202D22D","Repeat":1}'
+    - type: custom:button-card
+      name: HDMI
+      icon: mdi:hdmi-port
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202EF10","Repeat":1}'
+    - type: custom:button-card
+      name: AV
+      icon: mdi:audio-video
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202728D","Repeat":1}'
+    - type: custom:button-card
+      name: PC
+      icon: mdi:monitor
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202AF50","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      styles:
+        card:
+        - opacity: 0
+      tap_action:
+        action: none
+    - type: custom:button-card
+      name: ''
+      icon: mdi:chevron-up
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202D02F","Repeat":1}'
+    - type: custom:button-card
+      styles:
+        card:
+        - opacity: 0
+      tap_action:
+        action: none
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: ''
+      icon: mdi:chevron-left
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020208F7","Repeat":1}'
+    - type: custom:button-card
+      name: OK
+      icon: mdi:circle-slice-8
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202B04F","Repeat":1}'
+    - type: custom:button-card
+      name: ''
+      icon: mdi:chevron-right
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x02028877","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      styles:
+        card:
+        - opacity: 0
+      tap_action:
+        action: none
+    - type: custom:button-card
+      name: ''
+      icon: mdi:chevron-down
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202708F","Repeat":1}'
+    - type: custom:button-card
+      styles:
+        card:
+        - opacity: 0
+      tap_action:
+        action: none
+  - type: horizontal-stack
+    cards:
+    - type: vertical-stack
+      cards:
+      - type: custom:button-card
+        name: VOL+
+        icon: mdi:volume-plus
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: cmnd/ir-studio1/irsend
+            payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202A857","Repeat":1}'
+      - type: custom:button-card
+        name: VOL-
+        icon: mdi:volume-minus
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: cmnd/ir-studio1/irsend
+            payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020238C7","Repeat":1}'
+    - type: vertical-stack
+      cards:
+      - type: custom:button-card
+        name: MUTE
+        icon: mdi:volume-mute
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: cmnd/ir-studio1/irsend
+            payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202F00F","Repeat":1}'
+      - type: custom:button-card
+        name: PREV
+        icon: mdi:swap-horizontal
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: cmnd/ir-studio1/irsend
+            payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020218E7","Repeat":1}'
+    - type: vertical-stack
+      cards:
+      - type: custom:button-card
+        name: CH+
+        icon: mdi:chevron-up-box
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: cmnd/ir-studio1/irsend
+            payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202F807","Repeat":1}'
+      - type: custom:button-card
+        name: CH-
+        icon: mdi:chevron-down-box
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: cmnd/ir-studio1/irsend
+            payload: '{"Protocol":"NEC","Bits":32,"Data":"0x02027887","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: PIC
+      icon: mdi:image
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020242BD","Repeat":1}'
+    - type: custom:button-card
+      name: COLOR
+      icon: mdi:palette
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202C23D","Repeat":1}'
+    - type: custom:button-card
+      name: ZOOM
+      icon: mdi:aspect-ratio
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x02029867","Repeat":1}'
+    - type: custom:button-card
+      name: SOUND
+      icon: mdi:music-note
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020258A7","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: '1'
+      icon: mdi:numeric-1
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202807F","Repeat":1}'
+    - type: custom:button-card
+      name: '2'
+      icon: mdi:numeric-2
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020240BF","Repeat":1}'
+    - type: custom:button-card
+      name: '3'
+      icon: mdi:numeric-3
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202C03F","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: '4'
+      icon: mdi:numeric-4
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020220DF","Repeat":1}'
+    - type: custom:button-card
+      name: '5'
+      icon: mdi:numeric-5
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202A05F","Repeat":1}'
+    - type: custom:button-card
+      name: '6'
+      icon: mdi:numeric-6
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202609F","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: '7'
+      icon: mdi:numeric-7
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202E01F","Repeat":1}'
+    - type: custom:button-card
+      name: '8'
+      icon: mdi:numeric-8
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020210EF","Repeat":1}'
+    - type: custom:button-card
+      name: '9'
+      icon: mdi:numeric-9
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202906F","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: LIST
+      icon: mdi:format-list-bulleted
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202B847","Repeat":1}'
+    - type: custom:button-card
+      name: '0'
+      icon: mdi:numeric-0
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202A25D","Repeat":1}'
+    - type: custom:button-card
+      name: INFO
+      icon: mdi:information
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x02026897","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: TTX
+      icon: mdi:format-text
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020248B7","Repeat":1}'
+    - type: custom:button-card
+      name: PAL/NTSC
+      icon: mdi:television-classic
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202629D","Repeat":1}'
+    - type: custom:button-card
+      name: FREEZE
+      icon: mdi:snowflake
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x020200FF","Repeat":1}'
+    - type: custom:button-card
+      name: SLEEP
+      icon: mdi:power-sleep
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202E817","Repeat":1}'
+  - type: horizontal-stack
+    cards:
+    - type: custom:button-card
+      name: FACTORY1
+      icon: mdi:cog
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x0202F20D","Repeat":1}'
+      styles:
+        icon:
+        - color: violet
+    - type: custom:button-card
+      name: FACTORY2
+      icon: mdi:cog
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x82826D92","Repeat":1}'
+      styles:
+        icon:
+        - color: violet
+    - type: custom:button-card
+      name: FACTORY3
+      icon: mdi:cog
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x8282F708","Repeat":1}'
+      styles:
+        icon:
+        - color: violet
+    - type: custom:button-card
+      name: INT INFO
+      icon: mdi:information-outline
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x82825DA2","Repeat":1}'
+      styles:
+        icon:
+        - color: violet
+    - type: custom:button-card
+      name: HDCP
+      icon: mdi:lock
+      tap_action:
+        action: call-service
+        service: mqtt.publish
+        service_data:
+          topic: cmnd/ir-studio1/irsend
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x8282BD42","Repeat":1}'
+      styles:
+        icon:
+        - color: violet
