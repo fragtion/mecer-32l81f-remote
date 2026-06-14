@@ -20,6 +20,7 @@ firmware branches on it.
   blaster on the LAN, which transmits the NEC frame. Open it on your phone.
 - **`mecer_32l81f.lircd.conf`** — LIRC config (two remotes: user + service) for use
   with a Linux IR transmitter / `irsend`.
+- **`homeassistant.yaml`** — Home Assistant dashboard card
 
 ## Web remote (Tasmota blaster)
 
